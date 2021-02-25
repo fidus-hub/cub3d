@@ -1,0 +1,1 @@
+clear && gcc get_parametrs.c  file_reader.c routing.c ../cub3d.h  ../Get_Next_Line/get_next_line_utils.c ../Get_Next_Line/get_next_line.c errors.c -fsanitize=address -g3 && ./a.out
