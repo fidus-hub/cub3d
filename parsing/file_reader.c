@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 16:07:13 by mac               #+#    #+#             */
-/*   Updated: 2021/02/25 10:07:02 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/25 14:56:50 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	treat_file(char *line)
 	else if	(line[i] == 'S' && line [++i] == ' ')
 		get_check_txt(line, S);
 	else if (check_param())
-			get_map(line);
+		get_map(line);
 	else
 		errors(9);
 }

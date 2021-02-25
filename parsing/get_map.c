@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 10:33:03 by mac               #+#    #+#             */
-/*   Updated: 2021/02/25 10:04:57 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/25 14:19:07 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void get_map(char *str)
 {
-	if (str[0] == '\0')
-		errors(10);
 	g_map.map = ft_strjoin_line(g_map.map, str);
 }
 
@@ -56,7 +54,8 @@ void check_map(void)
 		j = 0;
 		while (g_map.all_map[i][j])
 		{
-			if (ft_strchr("102NSEW", g_map.all_map[i][j]) == NULL)
+			if ((ft_strchr("102NSEW", g_map.all_map[i][j])) == NULL
+				&& (g_map.all_map[i][j] != ' '))
 				errors(1);
 			j++;
 		}
