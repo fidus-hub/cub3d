@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 15:15:24 by mac               #+#    #+#             */
-/*   Updated: 2021/02/24 16:38:15 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/25 15:16:56 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ void errors(int i)
 		printf("ERROR\nINVALID LINE");
 	if (i == 10)
 		printf("ERROR\nINVALID MAP");
+	if (i == 11)
+		printf("ERROR\nNEW LINE");
+		
 	exit(0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 17:01:48 by mac               #+#    #+#             */
-/*   Updated: 2021/02/25 14:14:42 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/25 17:39:06 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,11 +139,17 @@ int main()
 	i = 0;
 	get_file();
 	split_map();
-	// while (g_map.all_map[i])
+	map_spacer();
+	while(g_map.all_map[i])
+	{
+		printf("|%s|\n",g_map.all_map[i]);
+		i++;
+	}
+	// while (g_map.spaces[i])
 	// {
-	// printf("%s\n",g_map.all_map[i]);
+	// printf("|%s|\n",g_map.spaces[i]);
 	// i++;
 	// }
 	
-	printf("h = %d\nw = %d\n", g_map.heigth, g_map.width);
+	// printf("h = %d\nw = %d\n", g_map.heigth, g_map.width);
 }

@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 10:33:03 by mac               #+#    #+#             */
-/*   Updated: 2021/02/25 14:19:07 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/25 17:38:29 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 void get_map(char *str)
 {
+	if (str[0] != '\0' && !g_map.test)
+		g_map.test = 1;
+	if (g_map.test && (str[0] != '\0'))
 	g_map.map = ft_strjoin_line(g_map.map, str);
+	if (g_map.test && (str[0] == '\0'))
+		errors(11);
 }
 
 void split_map()
@@ -61,4 +66,43 @@ void check_map(void)
 		}
 		i++;
 	}
+}
+
+void map_spacer(void)
+{
+	int	i;
+
+	i = 0;
+	while(g_map.all_map[i])
+	{
+		g_map.all_map[i] = ft_strjoin(" ",g_map.all_map[i]);
+		g_map.all_map[i] = ft_strjoin(g_map.all_map[i]," ");
+		i++;
+	}
+	i = 0;
+	while(g_map.all_map[i])
+	{
+		secure_map(i);
+		i++;
+	}
+}
+
+void secure_map(int i)
+{
+	int len;
+	char *str;
+	int f;
+	
+	f = 0;
+	len = g_map.width + 2 - ft_strlen(g_map.all_map[i]);
+	str = malloc(sizeof(char ) * len + 1);
+	while(len)
+	{
+		str[f] = ' ';
+		len--;
+		f++;
+	}
+	str[f] = '\0';
+	g_map.all_map[i] = ft_strjoin(g_map.all_map[i],str);
+	
 }

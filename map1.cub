@@ -1,14 +1,15 @@
-R 2550 1237
+R  2550 1500
 NO ./textures/north.xpm
 WE ./textures/west.xpm
 EA ./textures/east.xpm
 SO ./textures/south.xpm
 S ./textures/sprite.xpm
 F 230,100,0
-C 225,30,250
+C 225,30,255
 
-111111
-111111
-
-1101111
+./
+1111111111
+110111
+100N1
+111
 11111

@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/02/24 18:23:52 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/25 17:39:33 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@
 # define SO 9004
 # define S  9005
 
+
+
 typedef	struct	s_param
 {
 	int			width;
@@ -53,8 +55,10 @@ typedef struct	s_map
 {
 	char *map;
 	char **all_map;
+	char **spaces;
 	int width;
 	int heigth;
+	int test;
 }				t_map;
 
 t_map			g_map;
@@ -87,5 +91,8 @@ void			get_map(char *str);
 char			*ft_strjoin_line(char *s1, char *s2);
 void			split_map();
 void 			check_map(void);
+void			map_spacer(void);
+void 			secure_map(int i);
+
 
 #endif
