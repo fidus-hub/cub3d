@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/02/27 11:13:48 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/27 14:54:30 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void 			init();
 int				notmap(char *buffer);
 void			get_map(char *str);
 char			*ft_strjoin_line(char *s1, char *s2);
-void			split_map();
+void			split_map(char* str);
 void 			check_map(void);
 void			map_spacer(void);
 void 			secure_map(int i);

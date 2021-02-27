@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 10:33:03 by mac               #+#    #+#             */
-/*   Updated: 2021/02/27 11:27:42 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/27 14:53:06 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	get_map(char *str)
 {
+	
 	if (str[0] != '\0' && !g_map.test)
 		g_map.test = 1;
 	if (g_map.test && (str[0] != '\0'))
@@ -22,7 +23,7 @@ void	get_map(char *str)
 		errors(11);
 }
 
-void	split_map()
+void	split_map(char* str)
 {
 	int i;
 	int j;
@@ -30,6 +31,8 @@ void	split_map()
 
 	i = 0;
 	
+	if (str[i] == '\0')
+		errors(13);
 	g_map.all_map=ft_split(g_map.map,'\n');
 	check_map();
 	while (g_map.all_map[i])
