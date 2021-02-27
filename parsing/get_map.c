@@ -6,13 +6,13 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 10:33:03 by mac               #+#    #+#             */
-/*   Updated: 2021/02/25 17:38:29 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/27 11:27:42 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void get_map(char *str)
+void	get_map(char *str)
 {
 	if (str[0] != '\0' && !g_map.test)
 		g_map.test = 1;
@@ -22,7 +22,7 @@ void get_map(char *str)
 		errors(11);
 }
 
-void split_map()
+void	split_map()
 {
 	int i;
 	int j;
@@ -48,7 +48,7 @@ void split_map()
 	}
 }
 
-void check_map(void)
+void	check_map(void)
 {
 	int i;
 	int j;
@@ -68,7 +68,7 @@ void check_map(void)
 	}
 }
 
-void map_spacer(void)
+void	map_spacer(void)
 {
 	int	i;
 
@@ -87,7 +87,7 @@ void map_spacer(void)
 	}
 }
 
-void secure_map(int i)
+void	secure_map(int i)
 {
 	int len;
 	char *str;
@@ -104,5 +104,4 @@ void secure_map(int i)
 	}
 	str[f] = '\0';
 	g_map.all_map[i] = ft_strjoin(g_map.all_map[i],str);
-	
 }

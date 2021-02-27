@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 17:01:48 by mac               #+#    #+#             */
-/*   Updated: 2021/02/25 17:39:06 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/27 11:16:21 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,9 @@ int main()
 	get_file();
 	split_map();
 	map_spacer();
+	check_zero();
+	check_player();
+	
 	while(g_map.all_map[i])
 	{
 		printf("|%s|\n",g_map.all_map[i]);

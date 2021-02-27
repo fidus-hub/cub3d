@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 16:07:13 by mac               #+#    #+#             */
-/*   Updated: 2021/02/25 14:56:50 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/25 21:33:15 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@ void	get_file()
 		int fd;
 		char *line;
 		int	n;
-	
+		/*
+		if((fd = open("map.cub", O_RDONLY);) == -1)
+		{
+			perror(strerror(errno));
+			exit(0);
+		}
+		*/
 		fd = open("map.cub", O_RDONLY);
 		n = 1;
 		while (n)

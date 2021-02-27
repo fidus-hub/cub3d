@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 15:15:24 by mac               #+#    #+#             */
-/*   Updated: 2021/02/25 15:16:56 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/27 11:26:34 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ void errors(int i)
 		printf("ERROR\nINVALID MAP");
 	if (i == 11)
 		printf("ERROR\nNEW LINE");
+	if (i == 12)
+		printf("ERROR\nINVALID PLAYER NUMBER");
+	if (i == 13)
+		printf("ERROR\n ADD A MAP");
+		
 		
 	exit(0);
 }
