@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 15:15:24 by mac               #+#    #+#             */
-/*   Updated: 2021/02/27 11:26:34 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/27 15:35:43 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void errors(int i)
 		printf("ERROR\nINVALID PLAYER NUMBER");
 	if (i == 13)
 		printf("ERROR\n ADD A MAP");
+	if (i == 69)
+		printf("ERROR \n INVALID FILE CONFIGURATION");
 		
 		
 	exit(0);

@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 10:37:21 by mac               #+#    #+#             */
-/*   Updated: 2021/02/27 11:16:56 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/27 15:40:23 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void    check_zero(void)
 		j = 0;
 		while (g_map.all_map[i][j])
 		{
-            if (g_map.all_map[i][j] == '0')
+            if ((g_map.all_map[i][j] == '0') ||
+            (g_map.all_map[i][j] == '2'))
                 check_zero_errors(i, j);
 			j++;
 		}

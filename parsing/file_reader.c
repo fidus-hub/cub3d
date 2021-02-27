@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 16:07:13 by mac               #+#    #+#             */
-/*   Updated: 2021/02/27 15:03:35 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/27 15:21:35 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,17 @@ void	get_file()
 		while (n)
 		{
 			n = get_next_line(fd, &line);
-			treat_file(line);
+			if (n < 0)
+				errors(69);
+			if (!(check_param()))
+			{
+				if(*line != '\0')
+					treat_file(line);
+			}
+			else
+				treat_file(line);
+			if (n == 0)
+				break;
 		}
 }
 
@@ -38,7 +48,7 @@ void	treat_file(char *line)
 	int	i;
 
 	i = 0;
-	while (line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
+	while (line[i] == ' ' || line[i] == '\t')
 		i++;
 	if  (line[i] == 'R' && line[++i] == ' ')
 		get_r(line);

@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 17:01:48 by mac               #+#    #+#             */
-/*   Updated: 2021/02/27 14:50:45 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/27 15:36:54 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ void	get_r(char *line)
 	str = ft_split(line, ' ');
 	if (g_param.width != 0 && g_param.height != 0)
 		errors(2);
-	if (str[1][0] == '-' || str[2][0] == '-')
-		errors(3);
 	if (check_R_number(str) != 3)
 		errors(4);
-	
+	if (str[1][0] == '-' || str[2][0] == '-')
+		errors(3);
 	g_param.width = ft_atoi(str[1]);
 	g_param.height = ft_atoi(str[2]);
 	if (g_param.width > 2550)
