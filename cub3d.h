@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/02/27 16:09:29 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/27 17:15:20 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,18 @@ typedef	struct	s_param
 	char		*sprite_t;
 	int			check;
 }				t_param;
+
+typedef struct s_player
+{
+	int x;
+	int y;
+	float fov;
+	float rotation;
+	float speed;
+	float rotation_speed;
+}				t_player;
+
+t_player		g_player;	
 
 typedef struct	s_map
 {

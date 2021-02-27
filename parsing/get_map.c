@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 10:33:03 by mac               #+#    #+#             */
-/*   Updated: 2021/02/27 16:32:51 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/27 17:17:06 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,4 +116,13 @@ void	secure_map(int i)
 	g_map.all_map[i] = ft_strjoin(g_map.all_map[i],str);
 	free(tmp);
 	free(str);
+	check_player(str);
+}
+
+void check_player(char **str)
+{
+	int i;
+	int j;
+
+
 }
