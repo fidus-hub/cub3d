@@ -6,7 +6,7 @@
 #    By: mac <mac@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/21 15:54:56 by mac               #+#    #+#              #
-#    Updated: 2021/02/27 15:31:49 by mac              ###   ########.fr        #
+#    Updated: 2021/02/27 16:01:30 by mac              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ all : $(NAME)
 
 $(NAME) :
 		@$(MAKE) -C $(LIBFT)
-		@gcc -Wall -Wextra -Werror -g3  $(SRC) $(USELESS_FLAG) -o $(NAME)
+		@gcc -Wall -Wextra -Werror -g3  $(SRC)  -o $(NAME)
 clean :
 		@$(MAKE) -C $(LIBFT) clean 
 fclean : clean
@@ -33,4 +33,4 @@ fclean : clean
 		 @rm $(NAME)
 re : fclean all
 test : 
-		@gcc -Wall -Wextra -Werror -g3 $(SRC) $(USELESS_FLAG) -o $(NAME)
+		@gcc -Wall -Wextra -Werror -g3 $(SRC)  -o $(NAME)

@@ -6,12 +6,24 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 17:01:48 by mac               #+#    #+#             */
-/*   Updated: 2021/02/27 15:36:54 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/27 16:13:31 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 #include <stdio.h>
+
+void	meme_free(char **str)
+{
+	int i = 0;
+	while(str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
+
 
 void	get_r(char *line)
 {
@@ -39,6 +51,7 @@ void	get_r(char *line)
 		
 	
 	printf("width =%d, height = %d\n", g_param.width, g_param.height);
+	meme_free(str);
 
 }
 
@@ -73,6 +86,8 @@ void	get_f(char *line)
 		errors(7);
 
 	printf("F_R =%d, F_G = %d, F_B = %d\n", g_param.f_r, g_param.f_g, g_param.f_b);
+	meme_free(str);
+	meme_free(str2);
 }
 
 void	get_c(char *line)
@@ -106,6 +121,8 @@ void	get_c(char *line)
 		errors(8);
 
 printf("C_R =%d, C_G = %d, C_B = %d\n", g_param.c_r, g_param.c_g, g_param.c_b);
+	meme_free(str);
+	meme_free(str2);
 }
 
 void	get_check_txt(char *line, int txt)
@@ -127,7 +144,8 @@ void	get_check_txt(char *line, int txt)
 	else if (txt == S && g_param.sprite_t == NULL)
 		g_param.sprite_t = ft_strdup(str[1]);
 	else
-		errors(2);	
+		errors(2);
+	meme_free(str);
 }
 
 int main()
@@ -154,4 +172,6 @@ int main()
 	// }
 	
 	// printf("h = %d\nw = %d\n", g_map.heigth, g_map.width);
+
+	while(1);
 }

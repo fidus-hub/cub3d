@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/02/27 14:54:30 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/27 16:09:29 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ void 			secure_map(int i);
 void			check_zero(void);
 void    		check_zero_errors(int i, int j);
 void			check_player(void);
+void			meme_free(char **str);
 
 #endif
