@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/02/27 17:15:20 by mac              ###   ########.fr       */
+/*   Updated: 2021/03/11 17:15:35 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@
 # include "libft/libft.h"
 # include <signal.h>
 # include <stdlib.h>
+# include <mlx.h>
+
+
+# define PI 3.14159265
+# define TWO_PI 6.28318530
+# define rad (PI / 180)
 
 # define NO 9001
 # define WE 9002
@@ -31,9 +37,20 @@
 # define SO 9004
 # define S  9005
 
+# define tile_size 64
+# define fov_angle (60 * (PI / 180))
+
+typedef struct	s_rec
+{
+	int			i;
+	int			j;
+	int			c;
+	int			r;
+}				t_rec;
 
 
-typedef	struct	s_param
+
+typedef	struct	s_params
 {
 	int			width;
 	int			height;
@@ -49,16 +66,19 @@ typedef	struct	s_param
 	char		*east_t;
 	char		*sprite_t;
 	int			check;
-}				t_param;
+}				t_params;
 
 typedef struct s_player
 {
-	int x;
-	int y;
-	float fov;
-	float rotation;
-	float speed;
-	float rotation_speed;
+	float x;
+	float y;
+	float width;
+	float height;
+	float turnDirectioon;
+	float walkDirection;
+	float rotationAngle;
+	float walkSpeed;
+	float turnSpeed;
 }				t_player;
 
 t_player		g_player;	
@@ -74,7 +94,7 @@ typedef struct	s_map
 }				t_map;
 
 t_map			g_map;
-t_param			g_param;
+t_params			g_param;
 
 int				ft_isdigit(int c);
 void			get_file();
@@ -102,12 +122,19 @@ int				notmap(char *buffer);
 void			get_map(char *str);
 char			*ft_strjoin_line(char *s1, char *s2);
 void			split_map(char* str);
-void 			check_map(void);
+void			check_map(void);
 void			map_spacer(void);
 void 			secure_map(int i);
 void			check_zero(void);
-void    		check_zero_errors(int i, int j);
+void			check_zero_errors(int i, int j);
 void			check_player(void);
 void			meme_free(char **str);
+void			cub3d_init();
+int				draw_map(void);
+void			draw_circle(int x, int y, int r, int color);
+void			draw_rec(int x, int y, void *mlx, void *mlx_win);
+void			draw_void_rec(t_rec rec_coord, void *mlx, void *mlx_win);
+
+
 
 #endif

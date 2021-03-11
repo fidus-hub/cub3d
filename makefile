@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mac <mac@student.42.fr>                    +#+  +:+       +#+         #
+#    By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/21 15:54:56 by mac               #+#    #+#              #
-#    Updated: 2021/02/27 16:01:30 by mac              ###   ########.fr        #
+#    Updated: 2021/03/10 18:28:50 by mgrissen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,9 @@ GNL = gnl/
 LIBFT = libft/
 PARSING = parsing/
 
-SRC = $(LIBFT)/libft.a $(GNL)/*.c $(PARSING)/*.c 
-MLX_FLAG = mlx_flags
+SRC = $(LIBFT)/libft.a $(GNL)/*.c $(PARSING)/*.c  *.c
+OBJ = $(SRC:.c=.o)
+MLX_FLAG =  -lmlx -framework OpenGL -framework AppKit 
 NAME = CUB3D
 GNL_FLAGS = -D BUFFER_SIZE=32
 
@@ -24,13 +25,10 @@ USELESS_FLAG = -fsanitize=address
 all : $(NAME)
 
 $(NAME) :
-		@$(MAKE) -C $(LIBFT)
-		@gcc -Wall -Wextra -Werror -g3  $(SRC)  -o $(NAME)
+		@make -C $(LIBFT)
+		@gcc -Wall -Wextra -Werror -g3 $(SRC) -o $(NAME) $(MLX_FLAG)
 clean :
-		@$(MAKE) -C $(LIBFT) clean 
+		rm -rf $(OBJ)
 fclean : clean
-		 @$(MAKE) -C $(LIBFT) fclean 
-		 @rm $(NAME)
+		rm -rf $(NAME)
 re : fclean all
-test : 
-		@gcc -Wall -Wextra -Werror -g3 $(SRC)  -o $(NAME)

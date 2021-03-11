@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 10:33:03 by mac               #+#    #+#             */
-/*   Updated: 2021/02/27 17:17:06 by mac              ###   ########.fr       */
+/*   Updated: 2021/02/28 15:36:39 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,13 +116,13 @@ void	secure_map(int i)
 	g_map.all_map[i] = ft_strjoin(g_map.all_map[i],str);
 	free(tmp);
 	free(str);
-	check_player(str);
+	//check_player(str);
 }
 
-void check_player(char **str)
-{
-	int i;
-	int j;
+// void check_player(char **str)
+// {
+// 	int i;
+// 	int j;
 
 
-}
+// }

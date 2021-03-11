@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_parametrs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 17:01:48 by mac               #+#    #+#             */
-/*   Updated: 2021/02/27 16:13:31 by mac              ###   ########.fr       */
+/*   Updated: 2021/03/11 17:32:55 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,8 @@ void	get_check_txt(char *line, int txt)
 	meme_free(str);
 }
 
+
+
 int main()
 {
 	int i;
@@ -159,19 +161,23 @@ int main()
 	map_spacer();
 	check_zero();
 	check_player();
+	//! check this 
+	g_map.width =  ft_strlen(g_map.all_map[0]);
 	
+	printf("h = %d\nw = %d\n", g_map.heigth, g_map.width);
 	while(g_map.all_map[i])
 	{
 		printf("|%s|\n",g_map.all_map[i]);
 		i++;
 	}
+	//cub3d_init();
+	draw_map();
 	// while (g_map.spaces[i])
 	// {
 	// printf("|%s|\n",g_map.spaces[i]);
 	// i++;
 	// }
 	
-	// printf("h = %d\nw = %d\n", g_map.heigth, g_map.width);
 
-	while(1);
+
 }

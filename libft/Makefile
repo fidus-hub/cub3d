@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mgrissen <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/08 18:08:04 by mgrissen          #+#    #+#              #
-#    Updated: 2019/11/16 13:33:57 by mgrissen         ###   ########.fr        #
+#    Updated: 2021/03/10 18:26:44 by mgrissen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC = ft_isalpha.c ft_memccpy.c ft_memset.c ft_split.c ft_strlcpy.c ft_strrchr.c
 	  ft_isalnum.c ft_itoa.c ft_memmove.c	ft_putstr_fd.c ft_strlcat.c	ft_strnstr.c ft_toupper.c \
 	  ft_strcpy.c\
 
-OBJECT = *.o
+OBJECT = $(SRC:.c=.o)
 
 NAME = libft.a
 
@@ -28,7 +28,7 @@ $(NAME) :
 		 @ar rc $(NAME) $(OBJECT)
 		 @ranlib $(NAME)
 clean :
-		 @rm -rf *.o
+		 @rm -rf $(OBJECT)
 fclean : clean
 		 @rm -rf $(NAME)
 re : fclean all
