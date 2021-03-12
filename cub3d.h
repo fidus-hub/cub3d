@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/03/11 17:15:35 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/12 17:07:27 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,6 @@
 
 # define tile_size 64
 # define fov_angle (60 * (PI / 180))
-
-typedef struct	s_rec
-{
-	int			i;
-	int			j;
-	int			c;
-	int			r;
-}				t_rec;
 
 
 
@@ -94,7 +86,7 @@ typedef struct	s_map
 }				t_map;
 
 t_map			g_map;
-t_params			g_param;
+t_params		g_param;
 
 int				ft_isdigit(int c);
 void			get_file();
@@ -132,8 +124,7 @@ void			meme_free(char **str);
 void			cub3d_init();
 int				draw_map(void);
 void			draw_circle(int x, int y, int r, int color);
-void			draw_rec(int x, int y, void *mlx, void *mlx_win);
-void			draw_void_rec(t_rec rec_coord, void *mlx, void *mlx_win);
+void			draw_rec(int x, int y);
 
 
 
