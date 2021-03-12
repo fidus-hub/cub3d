@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/03/12 17:07:27 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/12 17:29:05 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,15 @@ typedef struct	s_map
 	int test;
 }				t_map;
 
+typedef struct  s_vars
+{
+    void        *mlx;
+    void        *win;
+}               t_vars;
+
 t_map			g_map;
 t_params		g_param;
+t_vars			g_vars;
 
 int				ft_isdigit(int c);
 void			get_file();

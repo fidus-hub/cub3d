@@ -6,23 +6,14 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 17:30:01 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/03/12 17:06:31 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/12 17:36:32 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 
-void *g_mlx;
-void *g_mlx_win;
-
-typedef struct  s_vars
-{
-    void        *mlx;
-    void        *win;
-}               t_vars;
-
-void draw_rec(int x ,int y)
+void	draw_rec(int x ,int y)
 {
 	int x1;
 	int y1;
@@ -34,7 +25,7 @@ void draw_rec(int x ,int y)
 		y = y1;
 		while (y < y1 + 64)
 		{
-			mlx_pixel_put(g_mlx, g_mlx_win, x, y, 0x1EE4ED);
+			mlx_pixel_put(g_vars.mlx, g_vars.win, x, y, 0x1EE4ED);
 			y++;
 		}
 		x++;
@@ -52,13 +43,24 @@ void	draw_circle(int x, int y, int r, int color)
 	{
 		x1 = cos(angle * rad) * r;
 		y1 = sin(angle * rad) * r;
-		mlx_pixel_put(g_mlx, g_mlx_win, x + x1, y + y1, color);
+		mlx_pixel_put(g_vars.mlx, g_vars.win, x + x1, y + y1, color);
 		angle += 0.4;
 	}
 	
 }
 
-int draw_map(void)
+// int move_player(void)
+// {
+	
+// }
+
+int		key_hook(int keycode)
+{
+    printf("key typed is: %d\n", keycode);
+	return(0);
+}
+
+int		draw_map(void)
 {
 	int		x;
 	int		y;
@@ -68,8 +70,8 @@ int draw_map(void)
 	r = 0;
 	color = 0xEB3EF3;
 
-	g_mlx = mlx_init();
-	g_mlx_win = mlx_new_window(g_mlx, g_param.width, g_param.height, "Fidus");
+	g_vars.mlx = mlx_init();
+	g_vars.win = mlx_new_window(g_vars.mlx, g_param.width, g_param.height, "Fidus");
 	
 	x = 0;
 	while (x < g_map.heigth)
@@ -93,6 +95,7 @@ int draw_map(void)
 		}
 		x++;
 	}
-	mlx_loop(g_mlx);
+	mlx_key_hook(g_vars.win, key_hook, &g_vars);
+	mlx_loop(g_vars.mlx);
 	return(0);
 }
