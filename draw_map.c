@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 17:30:01 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/03/12 17:36:32 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/12 18:31:34 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,9 @@ int		draw_map(void)
 	int		color;
 	
 	r = 0;
-	color = 0xEB3EF3;
-
-	g_vars.mlx = mlx_init();
-	g_vars.win = mlx_new_window(g_vars.mlx, g_param.width, g_param.height, "Fidus");
-	
 	x = 0;
+	color = 0xEB3EF3;
+	
 	while (x < g_map.heigth)
 	{
 		y = 0;
@@ -95,7 +92,5 @@ int		draw_map(void)
 		}
 		x++;
 	}
-	mlx_key_hook(g_vars.win, key_hook, &g_vars);
-	mlx_loop(g_vars.mlx);
 	return(0);
 }
