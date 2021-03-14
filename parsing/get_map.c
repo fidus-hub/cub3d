@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 10:33:03 by mac               #+#    #+#             */
-/*   Updated: 2021/02/28 15:36:39 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/14 17:15:05 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	secure_map(int i)
 	f = 0;
 	len = g_map.width + 2 - ft_strlen(g_map.all_map[i]);
 	str = malloc(sizeof(char ) * len + 1);
-	while(len)
+	while (len)
 	{
 		str[f] = ' ';
 		len--;

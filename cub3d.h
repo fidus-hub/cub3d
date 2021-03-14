@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/03/14 16:18:36 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/14 17:33:43 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,12 @@ typedef	struct	s_params
 	int			check;
 }				t_params;
 
+typedef struct	s_move
+{
+	int			up;
+}				t_move;
+
+
 typedef struct s_player
 {
 	float x;
@@ -94,6 +100,7 @@ typedef struct  s_vars
 t_map			g_map;
 t_params		g_param;
 t_vars			g_vars;
+t_move			g_move;
 
 int				ft_isdigit(int c);
 void			get_file();
@@ -132,7 +139,7 @@ void			cub3d_init();
 int				draw_map(void);
 void			draw_circle(int x, int y, int r, int color);
 void			draw_rec(int x, int y);
-int				key_hook(int keycode);
+int				key_hook(void);
 int				draw_player(void);
 
 

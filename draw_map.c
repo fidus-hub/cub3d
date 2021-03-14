@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 17:30:01 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/03/14 16:22:24 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/14 17:34:49 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,19 @@ void	draw_circle(int x, int y, int r, int color)
 		{
 			if (g_map.all_map[x][y] == 'N')
 			{	
-				while (r < 10)
-				{
-					draw_circle(y * tile_size, x * tile_size, r, color);
-						r++;
-				}
+				g_player.x = x * tile_size;
+				g_player.y = y * tile_size;
 			}
 			y++;
 		}
 		x++;
 	}
+	while (r < 10)
+	{
+		draw_circle(g_player.y, g_player.x , r, color);
+			r++;
+	}
+	
 	return(0);
 }
 	 
@@ -85,12 +88,63 @@ void	draw_circle(int x, int y, int r, int color)
 	return (0);
 }
 
-int		key_hook(int keycode)
+// If we press a key, we enter this function
+int		key_pressed(int keycode)
+{
+	printf("%d\n", keycode);
+	if (keycode == 13)
+		g_move.up = 1;
+	return (0);
+}
+
+// When we release a key, we enter this function
+int		key_released(int keycode)
+{
+	if (keycode == 13)
+		g_move.up = 0;
+	return (0);
+}
+
+// This is the function where you'll be incrementing or decrementing your player position (x, y) depending on the key
+void	update(void)
+{
+	if (g_move.up == 1)
+	{
+		g_player.y += 20;
+		g_player.x += 20;
+	}
+}
+
+
+int		key_hook(void)
 {
 	//w :13 a: 0 s : 1 d : 2 left : 123 right : 124 up : 126 down :125
-	printf("key typed is: %d\n", keycode);
+	mlx_hook(g_vars.win, 2, 0, key_pressed, 0);
+	mlx_hook(g_vars.win, 3, 0, key_released, 0);
 
-	return(0);
+	/*
+	** TO-DO:
+	** 1 - start using images instead of pixels
+	** 2 - destroy the image using mlx_destroy_image
+	** 3 - clear the window using mlx_clear_window
+	** 4 - create a new image and fill your data.
+	** 5 - draw the player and map again (done)
+	** 6 - Then call the update function at last (done)
+	**/
+
+	// The piece of code you need will need to be written here from now, wether for drawing rays or sprites...
+	// Any function that draw something will be here since, this is inside a loop as I specified on get_parameters.c
+	mlx_clear_window(g_vars.mlx, g_vars.win);
+	g_vars.win = mlx_new_window(g_vars.mlx, g_param.width, g_param.height,
+				 "Fidus world");
+
+	
+	// Don't touch below
+	draw_map();
+	draw_player();
+
+	update();
+	return (0);
 }
 
 
@@ -102,19 +156,16 @@ int		draw_map(void)
 	
 	r = 0;
 	x = 0;
-	
 	while (x < g_map.heigth)
 	{
 		y = 0;
 		while (y < g_map.width)
 		{
 			if (g_map.all_map[x][y] == '1' || g_map.all_map[x][y] == ' ')
-			{
 				draw_rec(y * tile_size, x * tile_size);
-			}
 			y++;
 		}
 		x++;
 	}
-	return(0);
+	return (0);
 }
