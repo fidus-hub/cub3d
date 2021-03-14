@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/03/12 18:30:31 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/14 16:18:36 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,8 @@ int				draw_map(void);
 void			draw_circle(int x, int y, int r, int color);
 void			draw_rec(int x, int y);
 int				key_hook(int keycode);
+int				draw_player(void);
+
 
 
 

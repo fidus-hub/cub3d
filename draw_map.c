@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 17:30:01 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/03/12 18:31:34 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/14 16:22:24 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,14 @@ void	draw_circle(int x, int y, int r, int color)
 		x1 = cos(angle * rad) * r;
 		y1 = sin(angle * rad) * r;
 		mlx_pixel_put(g_vars.mlx, g_vars.win, x + x1, y + y1, color);
-		angle += 0.4;
+		angle += 0.1;
 	}
 	
 }
 
-// int move_player(void)
-// {
-	
-// }
-
-int		key_hook(int keycode)
+ int draw_player(void)
 {
-    printf("key typed is: %d\n", keycode);
-	return(0);
-}
-
-int		draw_map(void)
-{
+	{
 	int		x;
 	int		y;
 	int		r;
@@ -76,17 +66,51 @@ int		draw_map(void)
 		y = 0;
 		while (y < g_map.width)
 		{
-			if (g_map.all_map[x][y] == '1' || g_map.all_map[x][y] == ' ')
-			{
-				draw_rec(y * tile_size, x * tile_size);
-			}
-			else if (g_map.all_map[x][y] == 'N')
+			if (g_map.all_map[x][y] == 'N')
 			{	
 				while (r < 10)
 				{
 					draw_circle(y * tile_size, x * tile_size, r, color);
 						r++;
 				}
+			}
+			y++;
+		}
+		x++;
+	}
+	return(0);
+}
+	 
+
+	return (0);
+}
+
+int		key_hook(int keycode)
+{
+	//w :13 a: 0 s : 1 d : 2 left : 123 right : 124 up : 126 down :125
+	printf("key typed is: %d\n", keycode);
+
+	return(0);
+}
+
+
+int		draw_map(void)
+{
+	int		x;
+	int		y;
+	int		r;
+	
+	r = 0;
+	x = 0;
+	
+	while (x < g_map.heigth)
+	{
+		y = 0;
+		while (y < g_map.width)
+		{
+			if (g_map.all_map[x][y] == '1' || g_map.all_map[x][y] == ' ')
+			{
+				draw_rec(y * tile_size, x * tile_size);
 			}
 			y++;
 		}

@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 17:01:48 by mac               #+#    #+#             */
-/*   Updated: 2021/03/12 18:31:52 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/14 16:16:54 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,7 @@ int main()
 	g_vars.win = mlx_new_window(g_vars.mlx, g_param.width, g_param.height,
 				 "Fidus world");
 	draw_map();
+	draw_player();
 	mlx_key_hook(g_vars.win, key_hook, &g_vars);
 	mlx_loop(g_vars.mlx);
 	
