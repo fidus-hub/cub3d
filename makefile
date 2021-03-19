@@ -6,7 +6,7 @@
 #    By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/21 15:54:56 by mac               #+#    #+#              #
-#    Updated: 2021/03/10 18:28:50 by mgrissen         ###   ########.fr        #
+#    Updated: 2021/03/19 16:00:52 by mgrissen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ all : $(NAME)
 
 $(NAME) :
 		@make -C $(LIBFT)
-		@gcc -Wall -Wextra -Werror -g3 $(SRC) -o $(NAME) $(MLX_FLAG)
+		@gcc  -g3 $(SRC) -o $(NAME) $(MLX_FLAG) -g -fsanitize=address
 clean :
 		rm -rf $(OBJ)
 fclean : clean

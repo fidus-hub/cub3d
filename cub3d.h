@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/03/14 17:33:43 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/19 16:04:34 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,12 @@ typedef struct s_player
 	float y;
 	float width;
 	float height;
-	float turnDirectioon;
+	float turnDirection;
 	float walkDirection;
 	float rotationAngle;
 	float walkSpeed;
 	float turnSpeed;
+	float fov;
 }				t_player;
 
 t_player		g_player;	
@@ -97,6 +98,15 @@ typedef struct  s_vars
     void        *win;
 }               t_vars;
 
+typedef struct s_data {
+	void *img;
+	char *addr;
+	int bpp;
+	int ln;
+	int endian;
+}               t_data;
+
+t_data			img;
 t_map			g_map;
 t_params		g_param;
 t_vars			g_vars;
@@ -141,6 +151,8 @@ void			draw_circle(int x, int y, int r, int color);
 void			draw_rec(int x, int y);
 int				key_hook(void);
 int				draw_player(void);
+int				play();
+void            my_mlx_pixel_put(t_data *img, int x, int y, int color);
 
 
 
