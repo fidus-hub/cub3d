@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 17:30:01 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/03/19 16:14:31 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/20 11:51:28 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,47 @@ int		key_pressed(int keycode)
 {
 	if (keycode == 13)
 		g_player.walkDirection = 1;
-		g_move.up = 1;
+	if (keycode == 1)
+		g_player.walkDirection = -1;
+	if (keycode == 0)
+		g_player.turnDirection = 1;
+	if (keycode == 2)
+		g_player.turnDirection = -1;
+	if (keycode == 53)
+		exit(0);
+		
 	return (0);
 }
 
 // When we release a key, we enter this function
 int		key_released(int keycode)
 {
-	if (keycode == 13)
+		if (keycode == 13)
 		g_player.walkDirection = 0;
-		g_move.up = 0;
+	if (keycode == 1)
+		g_player.walkDirection = 0;
+	if (keycode == 0)
+		g_player.turnDirection = 0;
+	if (keycode == 2)
+		g_player.turnDirection = 0;
+		
 	return (0);
 }
 
 // This is the function where you'll be incrementing or decrementing your player position (x, y) depending on the key
 void	update(void)
 {
+	float x;
+	float y;
 	float moveStep;
 	
 	g_player.rotationAngle += g_player.turnDirection * g_player.turnSpeed;
 	
 	moveStep = g_player.walkDirection * g_player.walkSpeed; 
-	g_player.x += cos(g_player.rotationAngle) * moveStep;
-	g_player.y += sin(g_player.rotationAngle) * moveStep;
+	x = g_player.x += cos(g_player.rotationAngle) * moveStep;
+	y = g_player.y += sin(g_player.rotationAngle) * moveStep;
+	g_player.x = x;
+	g_player.y = y;
 	printf("|%f| |%f|\n",g_player.x,g_player.y);
 }
 
@@ -68,7 +86,9 @@ int		key_hook(void)
 
 	
 	// Don't touch below
+	
 	update();
+	draw_map();
 	int r = 0;
 	while (r < 10)
 	{
@@ -76,7 +96,7 @@ int		key_hook(void)
 			r++;
 	}
 	mlx_put_image_to_window(g_vars.mlx, g_vars.win, img.img, 0, 0);
-	//mlx_destroy_image(g_vars.mlx, g_vars.mlx);
+	//mlx_destroy_image(g_vars.mlx, img.img);
 	//mlx_clear_window(g_vars.mlx, g_vars.win);
 	//draw_map();
 	// Raycasting();
