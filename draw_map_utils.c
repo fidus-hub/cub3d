@@ -6,13 +6,13 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 11:10:06 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/03/19 16:10:13 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/28 14:43:42 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void            my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
     char    *dst;
 
@@ -55,4 +55,21 @@ void	draw_circle(int x, int y, int r, int color)
 		//printf("----*-->%d\n",x);
 		angle += 0.1;
 	}
+}
+
+int			is_wall(float x, float y)
+{
+	int		i;
+	int		j;
+
+	i = floor(x / tile_size);
+	j = floor(y / tile_size);
+	
+	if (x < 0 || (x > g_param.width * tile_size )
+	|| y < 0 || y > (g_param.height * tile_size))
+		return (1);
+	if (g_map.all_map[i][j] == '1')
+		return (1);
+	else
+		return (0);
 }

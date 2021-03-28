@@ -6,46 +6,11 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 17:30:01 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/03/20 11:51:28 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/28 14:45:59 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-
-
-
-// If we press a key, we enter this function
-int		key_pressed(int keycode)
-{
-	if (keycode == 13)
-		g_player.walkDirection = 1;
-	if (keycode == 1)
-		g_player.walkDirection = -1;
-	if (keycode == 0)
-		g_player.turnDirection = 1;
-	if (keycode == 2)
-		g_player.turnDirection = -1;
-	if (keycode == 53)
-		exit(0);
-		
-	return (0);
-}
-
-// When we release a key, we enter this function
-int		key_released(int keycode)
-{
-		if (keycode == 13)
-		g_player.walkDirection = 0;
-	if (keycode == 1)
-		g_player.walkDirection = 0;
-	if (keycode == 0)
-		g_player.turnDirection = 0;
-	if (keycode == 2)
-		g_player.turnDirection = 0;
-		
-	return (0);
-}
 
 // This is the function where you'll be incrementing or decrementing your player position (x, y) depending on the key
 void	update(void)
@@ -56,13 +21,19 @@ void	update(void)
 	
 	g_player.rotationAngle += g_player.turnDirection * g_player.turnSpeed;
 	
-	moveStep = g_player.walkDirection * g_player.walkSpeed; 
-	x = g_player.x += cos(g_player.rotationAngle) * moveStep;
-	y = g_player.y += sin(g_player.rotationAngle) * moveStep;
-	g_player.x = x;
-	g_player.y = y;
+	moveStep = g_player.walkDirection * g_player.walkSpeed;
+	
+	x = g_player.x + cos(g_player.rotationAngle) * moveStep;
+	y = g_player.y + sin(g_player.rotationAngle) * moveStep;
+	if (!is_wall(x, y))
+	{
+		g_player.x = x;
+		g_player.y = y;
+	}
+
 	printf("|%f| |%f|\n",g_player.x,g_player.y);
 }
+
 
 int		key_hook(void)
 {
@@ -124,7 +95,7 @@ int		key_hook(void)
 				g_player.x = x * tile_size;
 				g_player.y = y * tile_size;
 				g_player.rotationAngle = M_PI / 2;
-				g_player.walkSpeed = 2.0;
+				g_player.walkSpeed = 3;
 				g_player.turnDirection = 0;
 				g_player.turnSpeed = 2 * (M_PI / 180);
 				g_player.walkDirection = 0;

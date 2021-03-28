@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/03/19 16:04:34 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/28 14:47:20 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,11 @@ void			draw_rec(int x, int y);
 int				key_hook(void);
 int				draw_player(void);
 int				play();
-void            my_mlx_pixel_put(t_data *img, int x, int y, int color);
+void			my_mlx_pixel_put(t_data *img, int x, int y, int color);
+int				is_wall(float x, float y);
+int				key_pressed(int keycode);
+int				key_released(int keycode);
+
 
 
 
