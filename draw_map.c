@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 17:30:01 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/03/28 14:45:59 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/28 14:54:00 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,34 +30,11 @@ void	update(void)
 		g_player.x = x;
 		g_player.y = y;
 	}
-
-	printf("|%f| |%f|\n",g_player.x,g_player.y);
 }
 
 
 int		key_hook(void)
 {
-	//w :13 a: 0 s : 1 d : 2 left : 123 right : 124 up : 126 down :125
-	//mlx_hook(g_vars.win, 2, 0, key_pressed, 0);
-//	mlx_hook(g_vars.win, 3, 0, key_released, 0);
-
-	/*
-	** TO-DO:
-	** 1 - start using images instead of pixels
-	** 2 - destroy the image using mlx_destroy_image
-	** 3 - clear the window using mlx_clear_window
-	** 4 - create a new image and fill your data.
-	** 5 - draw the player and map again (done)
-	** 6 - Then call the update function at last (done)
-	**/
-
-	// The piece of code you need will need to be written here from now, wether for drawing rays or sprites...
-	// Any function that draw something will be here since, this is inside a loop as I specified on get_parameters.c
-
-
-	
-	// Don't touch below
-	
 	update();
 	draw_map();
 	int r = 0;
@@ -99,8 +76,6 @@ int		key_hook(void)
 				g_player.turnDirection = 0;
 				g_player.turnSpeed = 2 * (M_PI / 180);
 				g_player.walkDirection = 0;
-				//g_player.fov;
-				
 			}
 			y++;
 		}

@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/03/28 14:47:20 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/30 14:37:39 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
+# include <limits.h>
 # include "gnl/get_next_line.h"
 # include "libft/libft.h"
 # include <signal.h>
 # include <stdlib.h>
 # include <mlx.h>
 
-
+#define FALSE 0
+#define TRUE 1
 # define PI 3.14159265
 # define TWO_PI 6.28318530
 # define rad (PI / 180)
@@ -40,6 +42,8 @@
 # define tile_size 64
 # define fov_angle (60 * (PI / 180))
 
+#define WALL_STRIP_WIDTH  1
+#define NUM_RAYS  g_map.width / WALL_STRIP_WIDTH
 
 
 typedef	struct	s_params
@@ -80,6 +84,46 @@ typedef struct s_player
 	float fov;
 }				t_player;
 
+typedef struct s_ray
+{
+	float rayAngle;
+	float wallHitX;
+	float wallHitY;
+	float distance;
+	int vertical;
+	int up;
+	int down;
+	int left;
+	int right;
+	int content;
+}				t_ray[1000];
+
+typedef struct s_rays
+{
+	int found_HorzHit;
+	int found_VertHit;
+	int horz_content;
+	int vert_content;
+	float x_intercept;
+	float y_intercept;
+	float horz_HitX;
+	float horz_HitY;
+	float vert_HitX;
+	float vert_HitY;
+	float y_step;
+	float x_step;
+	float NHX;
+	float NHY;
+	float NVX;
+	float NVY;
+	float x_check;
+	float y_check;
+	float horz_dist;
+	float vert_dist;
+	
+}				t_rays;
+
+
 t_player		g_player;	
 
 typedef struct	s_map
@@ -111,6 +155,8 @@ t_map			g_map;
 t_params		g_param;
 t_vars			g_vars;
 t_move			g_move;
+t_ray			g_ray;
+t_rays			g_rays;
 
 int				ft_isdigit(int c);
 void			get_file();

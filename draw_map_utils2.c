@@ -6,13 +6,24 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 14:44:46 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/03/28 14:46:40 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/28 14:52:50 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// If we press a key, we enter this function
+void cub3d_init()
+{
+	 
+
+    void    *mlx;
+    void    *mlx_win;
+
+    mlx = mlx_init();
+    mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
+    mlx_loop(mlx);
+}
+
 int		key_pressed(int keycode)
 {
 	if (keycode == 13)
@@ -29,7 +40,6 @@ int		key_pressed(int keycode)
 	return (0);
 }
 
-// When we release a key, we enter this function
 int		key_released(int keycode)
 {
 		if (keycode == 13)
