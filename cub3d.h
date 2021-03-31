@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/03/30 14:37:39 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/03/31 12:07:24 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,12 @@ typedef struct s_rays
 	float y_check;
 	float horz_dist;
 	float vert_dist;
+
+	int up;
+	int down;
+	int left;
+	int right;
+	int content;
 	
 }				t_rays;
 
