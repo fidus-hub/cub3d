@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 11:10:06 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/01 17:49:34 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/03 15:06:10 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
     char    *dst;
-
+	if(x > g_param.width && x < 0 && y < 0 && y > g_param.height)
+		return ;
     dst = data->addr + (y * data->ln + x * (data->bpp / 8));
     *(unsigned int*)dst = color;
 }
@@ -55,6 +56,19 @@ void	draw_circle(int x, int y, int r, int color)
 		//printf("----*-->%d\n",x);
 		angle += 0.1;
 	}
+	float r1 = normalizeAngle(g_player.rotationAngle);
+	int c;// = floorf(cosf(r1) * 50);
+	int	s;// = floorf(sinf(r1) * 50);
+	
+
+	s = g_player.x + cos(g_player.rotationAngle) * 30;
+	c = g_player.y + sin(g_player.rotationAngle) * 30;
+	s = abs(s);
+	c = abs(c);
+	//printf("%f   |   %f\n", cosf(r1), sinf(r1));
+	printf("%d  |  %d\n",c,s);
+	
+	DDA(x,y,c , s , 0xff0000);
 }
 
 int			is_wall(float x, float y)

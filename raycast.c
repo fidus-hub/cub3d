@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:18:48 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/03 12:51:35 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/03 14:21:58 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ float	distance_between_points(float x1,float y1, float x2, float y2)
 
 void cast_ray(float rayAngle, int stripId)
 {
+	int temp = g_player.x;
+	g_player.x = g_player.y;
+	g_player.y = temp;
 	rayAngle = normalizeAngle(rayAngle);
 	g_rays.down = rayAngle > 0 && rayAngle < PI;
 	g_rays.up = !g_rays.down;
@@ -158,7 +161,7 @@ void cast_ray(float rayAngle, int stripId)
 	g_ray[stripId].right = g_rays.right;
 	//printf("x = %f , y = %f , x1 = %f , y1 = %f\n", g_player.x, g_player.y,g_ray[stripId].wallHitX, g_ray[stripId].wallHitY);
 
-	DDA(g_player.y ,g_player.x , g_ray[stripId].wallHitX, g_ray[stripId].wallHitY, 0xDF15C0);
+	DDA(g_player.x ,g_player.y , g_ray[stripId].wallHitX, g_ray[stripId].wallHitY, 0xDF15C0);
 }
 
 void	cast_all_rays()
@@ -173,7 +176,7 @@ void	cast_all_rays()
 	while (stripId <(int)g_map.width)
 	{
 		//printf("->>>%d",g_param.width);
-		cast_ray(rayAngle, stripId);
+		//cast_ray(rayAngle, stripId);
 		rayAngle += fov_angle / NUM_RAYS;
 		//rayAngle+= g_player.fov / g_map.width;
 		//DDA(g_player.y, g_player.x, g_ray[stripId].wallHitX, g_ray[stripId].wallHitY, 0xDF15C0);

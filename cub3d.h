@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/04/01 17:29:35 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/03 14:50:29 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,9 +212,9 @@ int				key_released(int keycode);
 void			DDA(int X0, int Y0, int X1, int Y1, int color);
 void			cast_all_rays();
 int				map_has_wall(float x, float y);
-void		draw_line_2(float y, float x, float y1,	float x1, float ray_angle, int color);
-float	distancebetweenpts(float xd, float yd, float xf, float yf);
-
+void			draw_line_2(float y, float x, float y1,	float x1, float ray_angle, int color);
+float			distancebetweenpts(float xd, float yd, float xf, float yf);
+float			normalizeAngle(float angle);
 
 
 
