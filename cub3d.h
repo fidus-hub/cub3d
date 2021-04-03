@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/04/03 14:50:29 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/03 17:28:30 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define PI 3.14159265
 # define TWO_PI 6.28318530
 # define rad (PI / 180)
+# define RADIAN(x) (x * M_PI / 180)
 # define FLT_MAX  3.4028234664e+38
 
 # define NO 9001

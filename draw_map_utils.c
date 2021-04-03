@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 11:10:06 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/03 15:06:10 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/03 17:45:24 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
     char    *dst;
-	if(x > g_param.width && x < 0 && y < 0 && y > g_param.height)
-		return ;
-    dst = data->addr + (y * data->ln + x * (data->bpp / 8));
-    *(unsigned int*)dst = color;
+
+	if (x >= 0 && x < g_param.width && y >= 0 && y < g_param.height)
+	{
+		dst = data->addr + (y * data->ln + x * (data->bpp / 8));
+		*(unsigned int*)dst = color;
+	}
 }
 
 void	draw_rec(int x ,int y)
@@ -61,14 +63,14 @@ void	draw_circle(int x, int y, int r, int color)
 	int	s;// = floorf(sinf(r1) * 50);
 	
 
-	s = g_player.x + cos(g_player.rotationAngle) * 30;
-	c = g_player.y + sin(g_player.rotationAngle) * 30;
+	s = g_player.x + cos(g_player.rotationAngle) * 50;
+	c = g_player.y + sin(g_player.rotationAngle) * 50;
 	s = abs(s);
 	c = abs(c);
 	//printf("%f   |   %f\n", cosf(r1), sinf(r1));
-	printf("%d  |  %d\n",c,s);
+	// printf("%d  |  %d\n",c,s);
 	
-	DDA(x,y,c , s , 0xff0000);
+	DDA(x, y, c, s, 0xff0000);
 }
 
 int			is_wall(float x, float y)
@@ -78,12 +80,10 @@ int			is_wall(float x, float y)
 
 	i = floor(x / tile_size);
 	j = floor(y / tile_size);
-	
-	
-	if (x < 0 || (x > g_param.width * tile_size )
+	if (x < 0 || (x > g_param.width * tile_size)
 	|| y < 0 || y > (g_param.height * tile_size))
 		return (1);
-	if (g_map.all_map[i][j] == '1')
+	if (g_map.all_map[j][i] == '1')
 		return (1);
 	else
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 10:48:21 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/03 14:15:37 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/03 17:57:46 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,15 @@ int			map_has_wall(float x, float y)
 {
 	int		i;
 	int		j;
-	if (x < 0 || (x > g_map.width * tile_size )
-	|| y < 0 || y > (g_map.heigth * tile_size))
-		return (1);
-	j = floor(x / tile_size);
-	i = floor(y / tile_size);
-	if (i< 0 || (i >= g_map.width)
-	|| j < 0 || j >= (g_map.heigth ))
-		return (1);
-	if (g_map.all_map[i][j] == '1')
-		return (1);
-	else
+
+	i = floor(x / tile_size);
+	j = floor(y / tile_size);
+	if (i < 0 || (i >= g_map.width)
+	|| j < 0 || j >= (g_map.heigth))
 		return (0);
+	if (g_map.all_map[j][i] == '1' && g_map.all_map[j][i] == ' ')
+		return (1);
+	return (0);
 }
 /*
 int		map_has_wall(float x,float y)

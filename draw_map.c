@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 17:30:01 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/03 14:09:43 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/03 17:45:21 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	update(void)
 	
 	x = g_player.x + cos(g_player.rotationAngle) * moveStep;
 	y = g_player.y + sin(g_player.rotationAngle) * moveStep;
-	if (!is_wall(x, y))
+	if (!is_wall(y, x))
 	{
 		g_player.x = x;
 		g_player.y = y;
@@ -38,7 +38,7 @@ int		key_hook(void)
 	update();
 	draw_map();
 	int r = 0;
-	while (r < 10)
+	while (r < 5)
 	{
 		draw_circle(g_player.y, g_player.x, r, 0xEB3EF3);
 			r++;
@@ -47,9 +47,6 @@ int		key_hook(void)
 	mlx_put_image_to_window(g_vars.mlx, g_vars.win, img.img, 0, 0);
 	//mlx_destroy_image(g_vars.mlx, img.img);
 	//mlx_clear_window(g_vars.mlx, g_vars.win);
-	//draw_map();
-	// Raycasting();
-	// Sprites();
 	
 	
 	return (0);
@@ -70,9 +67,9 @@ int		key_hook(void)
 		{
 			if (g_map.all_map[x][y] == 'N')
 			{
-				g_player.x = x * tile_size + tile_size / 2;
-				g_player.y = y * tile_size + tile_size / 2;
-				g_player.rotationAngle = M_PI / 2;
+				g_player.x = x * tile_size + 32;
+				g_player.y = y * tile_size + 32;
+				g_player.rotationAngle = RADIAN(360);
 				g_player.walkSpeed = 3;
 				g_player.turnDirection = 0;
 				g_player.turnSpeed = 2 * (M_PI / 180);
