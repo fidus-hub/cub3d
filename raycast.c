@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:18:48 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/03 12:33:41 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/03 12:51:35 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ void cast_ray(float rayAngle, int stripId)
 	g_ray[stripId].right = g_rays.right;
 	//printf("x = %f , y = %f , x1 = %f , y1 = %f\n", g_player.x, g_player.y,g_ray[stripId].wallHitX, g_ray[stripId].wallHitY);
 
-	DDA(stripId, g_map.heigth / 2, g_ray[stripId].wallHitX, g_ray[stripId].wallHitY, 0xDF15C0);
+	DDA(g_player.y ,g_player.x , g_ray[stripId].wallHitX, g_ray[stripId].wallHitY, 0xDF15C0);
 }
 
 void	cast_all_rays()
