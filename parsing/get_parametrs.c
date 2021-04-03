@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 17:01:48 by mac               #+#    #+#             */
-/*   Updated: 2021/03/20 11:21:25 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/01 17:50:31 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	get_r(char *line)
 		
 	
 	printf("width =%d, height = %d\n", g_param.width, g_param.height);
-	meme_free(str);
+	meme_free(str); 
 
 }
 

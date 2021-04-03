@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 17:30:01 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/03/28 14:54:00 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/01 13:44:52 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		key_hook(void)
 		draw_circle(g_player.y, g_player.x, r, 0xEB3EF3);
 			r++;
 	}
+	cast_all_rays();
 	mlx_put_image_to_window(g_vars.mlx, g_vars.win, img.img, 0, 0);
 	//mlx_destroy_image(g_vars.mlx, img.img);
 	//mlx_clear_window(g_vars.mlx, g_vars.win);
@@ -69,8 +70,8 @@ int		key_hook(void)
 		{
 			if (g_map.all_map[x][y] == 'N')
 			{
-				g_player.x = x * tile_size;
-				g_player.y = y * tile_size;
+				g_player.x = x * tile_size + tile_size / 2;
+				g_player.y = y * tile_size + tile_size / 2;
 				g_player.rotationAngle = M_PI / 2;
 				g_player.walkSpeed = 3;
 				g_player.turnDirection = 0;

@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 11:10:06 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/03/28 14:43:42 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/01 17:49:34 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int			is_wall(float x, float y)
 
 	i = floor(x / tile_size);
 	j = floor(y / tile_size);
+	
 	
 	if (x < 0 || (x > g_param.width * tile_size )
 	|| y < 0 || y > (g_param.height * tile_size))
