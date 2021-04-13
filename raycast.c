@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:18:48 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/13 16:04:34 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/13 16:53:22 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,25 @@ void cast_ray(float rayAngle, int stripId)
 	g_ray[stripId].left = g_rays.left;
 	g_ray[stripId].right = g_rays.right;
 
-	DDA(g_player.y, g_player.x, g_ray[stripId].wallHitY, g_ray[stripId].wallHitX, 0xffffff);
+//	DDA(g_player.y, g_player.x, g_ray[stripId].wallHitY, g_ray[stripId].wallHitX, 0xffffff);
+
+        float perpDistance = g_ray[stripId].distance * cos(g_ray[stripId].rayAngle - g_player.rotationAngle);
+        float distanceProjPlane = (g_param.width / 2) / tan(fov_angle / 2);
+        float projectedWallHeight = (tile_size / perpDistance) * distanceProjPlane;
+
+        int wallStripHeight = (int)projectedWallHeight;
+
+        int wallTopPixel = (g_param.height / 2) - (wallStripHeight / 2);
+        wallTopPixel = wallTopPixel < 0 ? 0 : wallTopPixel;
+
+        int wallBottomPixel = (g_param.height / 2) + (wallStripHeight / 2);
+        wallBottomPixel = wallBottomPixel > g_param.height ? g_param.height : wallBottomPixel;
+
+        // render the wall from wallTopPixel to wallBottomPixel
+        for (int y = wallTopPixel; y < wallBottomPixel; y++) {
+			my_mlx_pixel_put(&img, stripId, y, 0xFF0000);
+            //colorBuffer[(g_param.width * y) + stripId] = g_ray[stripId].vertical ? 0xFFFFFFFF : 0xFFCCCCCC;
+        }
 
 }
 

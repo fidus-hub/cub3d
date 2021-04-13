@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 17:30:01 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/13 15:33:17 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/13 16:57:31 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int		key_hook(void)
 	update();
 	draw_map();
 	int r = 0;
-	while (r < 5)
+	/*while (r < 5)
 	{
 		draw_circle(g_player.y, g_player.x, r, 0xEB3EF3);
 			r++;
-	}
+	}*/
 	cast_all_rays();
 	mlx_put_image_to_window(g_vars.mlx, g_vars.win, img.img, 0, 0);
 	mlx_destroy_image(g_vars.mlx, img.img);
@@ -95,7 +95,7 @@ int		draw_map(void)
 	
 	r = 0;
 	x = 0;
-	while (x < g_map.heigth)
+	/*while (x < g_map.heigth)
 	{
 		y = 0;
 		while (y < g_map.width)
@@ -105,7 +105,7 @@ int		draw_map(void)
 			y++;
 		}
 		x++;
-	}
+	}*/
 	return (0);
 }
 int play()

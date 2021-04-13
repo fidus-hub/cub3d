@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 14:44:46 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/03 16:31:17 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/13 17:03:51 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int		key_pressed(int keycode)
 		g_player.walkDirection = 1;
 	if (keycode == 1)
 		g_player.walkDirection = -1;
-	if (keycode == 0)
-		g_player.turnDirection = 1;
 	if (keycode == 2)
+		g_player.turnDirection = 1;
+	if (keycode == 0)
 		g_player.turnDirection = -1;
 	if (keycode == 53)
 		exit(0);
@@ -44,9 +44,9 @@ int		key_released(int keycode)
 		g_player.walkDirection = 0;
 	if (keycode == 1)
 		g_player.walkDirection = 0;
-	if (keycode == 0)
-		g_player.turnDirection = 0;
 	if (keycode == 2)
+		g_player.turnDirection = 0;
+	if (keycode == 0)
 		g_player.turnDirection = 0;
 		
 	return (0);
