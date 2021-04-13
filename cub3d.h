@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/04/03 17:28:30 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/13 15:36:53 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@
 # include <stdlib.h>
 # include <mlx.h>
 
-#define FALSE 0
-#define TRUE 1
+# define FALSE 0
+# define TRUE 1
+
 # define PI 3.14159265
 # define TWO_PI 6.28318530
 # define rad (PI / 180)
@@ -97,8 +98,7 @@ typedef struct s_ray
 	int down;
 	int left;
 	int right;
-	int content;
-}				t_ray[1000];
+}				t_ray;
 
 typedef struct s_rays
 {
@@ -127,8 +127,6 @@ typedef struct s_rays
 	int down;
 	int left;
 	int right;
-	int content;
-	
 }				t_rays;
 
 
@@ -163,7 +161,7 @@ t_map			g_map;
 t_params		g_param;
 t_vars			g_vars;
 t_move			g_move;
-t_ray			g_ray;
+t_ray			g_ray[1000];
 t_rays			g_rays;
 
 int				ft_isdigit(int c);
@@ -214,7 +212,7 @@ void			DDA(int X0, int Y0, int X1, int Y1, int color);
 void			cast_all_rays();
 int				map_has_wall(float x, float y);
 void			draw_line_2(float y, float x, float y1,	float x1, float ray_angle, int color);
-float			distancebetweenpts(float xd, float yd, float xf, float yf);
+float			distance_between_points(float x1,float y1, float x2, float y2);
 float			normalizeAngle(float angle);
 
 

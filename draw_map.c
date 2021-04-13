@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 17:30:01 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/03 17:45:21 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/13 15:33:17 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		key_hook(void)
 	}
 	cast_all_rays();
 	mlx_put_image_to_window(g_vars.mlx, g_vars.win, img.img, 0, 0);
-	//mlx_destroy_image(g_vars.mlx, img.img);
+	mlx_destroy_image(g_vars.mlx, img.img);
 	//mlx_clear_window(g_vars.mlx, g_vars.win);
 	
 	
