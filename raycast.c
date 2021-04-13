@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:18:48 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/13 15:30:12 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/13 16:04:34 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ void	cast_all_rays()
 	rayAngle = g_player.rotationAngle - (fov_angle / 2);
 	rayAngle = normalizeAngle(rayAngle);
 
-	while (stripId < NUM_RAYS)
+	while (stripId < g_param.width)
 	{
 		g_rays.down = rayAngle > 0 && rayAngle < PI;
 		g_rays.up = !g_rays.down;

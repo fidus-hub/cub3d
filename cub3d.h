@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/04/13 15:36:53 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/13 16:05:25 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define fov_angle (60 * (PI / 180))
 
 #define WALL_STRIP_WIDTH  1
-#define NUM_RAYS  g_map.width / WALL_STRIP_WIDTH
+#define NUM_RAYS  g_param.width / WALL_STRIP_WIDTH
 
 
 typedef	struct	s_params
@@ -161,7 +161,7 @@ t_map			g_map;
 t_params		g_param;
 t_vars			g_vars;
 t_move			g_move;
-t_ray			g_ray[1000];
+t_ray			g_ray[3000];
 t_rays			g_rays;
 
 int				ft_isdigit(int c);
