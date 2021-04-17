@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 17:01:48 by mac               #+#    #+#             */
-/*   Updated: 2021/04/17 17:32:16 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/17 17:40:00 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,17 +159,17 @@ int main()
 	map_spacer();
 	check_zero();
 	check_player();
+
 	//! check this 
 	g_map.width =  ft_strlen(g_map.all_map[0]);
 	g_vars.mlx = mlx_init();
 	g_vars.win = mlx_new_window(g_vars.mlx, g_param.width, g_param.height,
 				 "Fidus world");
 	
-	
 	//draw_map();
 	draw_player();
 	texture_init();
-	mlx_loop_hook(g_vars.mlx,play,0);
+	mlx_loop_hook(g_vars.mlx, play, 0);
 //	mlx_key_hook(g_vars.win, key_hook, 0);
 
 	mlx_loop(g_vars.mlx);
