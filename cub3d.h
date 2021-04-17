@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/04/13 16:05:25 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/17 17:20:46 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,10 +151,29 @@ typedef struct  s_vars
 typedef struct s_data {
 	void *img;
 	char *addr;
-	int bpp;
+	int	bpp;
 	int ln;
 	int endian;
 }               t_data;
+
+typedef struct	s_tex
+{
+	void		*ptr;
+	int			img_width;
+	int			img_height;
+	int			bpp;
+	int			size_line;
+	int			endian;
+	int			*north;
+	int			*south;
+	int			*east;
+	int			*west;
+	int			offset_x;
+	int			offset_y;
+	int			dist_ftop;
+	int			color;
+}				t_tex;
+
 
 t_data			img;
 t_map			g_map;
@@ -163,6 +182,7 @@ t_vars			g_vars;
 t_move			g_move;
 t_ray			g_ray[3000];
 t_rays			g_rays;
+t_tex			g_tex;
 
 int				ft_isdigit(int c);
 void			get_file();
@@ -216,5 +236,5 @@ float			distance_between_points(float x1,float y1, float x2, float y2);
 float			normalizeAngle(float angle);
 
 
-
+void	texture_init(void);
 #endif

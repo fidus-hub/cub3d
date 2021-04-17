@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 10:33:03 by mac               #+#    #+#             */
-/*   Updated: 2021/03/14 17:15:05 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/17 16:58:58 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	split_map(char* str)
 	
 	if (str[i] == '\0')
 		errors(13);
-	g_map.all_map=ft_split(g_map.map,'\n');
+	g_map.all_map = ft_split(g_map.map,'\n');
 	check_map();
 	while (g_map.all_map[i])
 	{

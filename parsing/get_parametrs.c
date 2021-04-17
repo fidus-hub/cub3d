@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 17:01:48 by mac               #+#    #+#             */
-/*   Updated: 2021/04/01 17:50:31 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/17 17:32:16 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void	get_c(char *line)
 	else
 		errors(8);
 
-printf("C_R =%d, C_G = %d, C_B = %d\n", g_param.c_r, g_param.c_g, g_param.c_b);
+	printf("C_R =%d, C_G = %d, C_B = %d\n", g_param.c_r, g_param.c_g, g_param.c_b);
 	meme_free(str);
 	meme_free(str2);
 }
@@ -148,8 +148,6 @@ void	get_check_txt(char *line, int txt)
 	meme_free(str);
 }
 
-
-
 int main()
 {
 	int i;
@@ -170,6 +168,7 @@ int main()
 	
 	//draw_map();
 	draw_player();
+	texture_init();
 	mlx_loop_hook(g_vars.mlx,play,0);
 //	mlx_key_hook(g_vars.win, key_hook, 0);
 

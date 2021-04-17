@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:18:48 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/13 17:24:07 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/17 17:34:37 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,37 +137,47 @@ void cast_ray(float rayAngle, int stripId)
 	g_ray[stripId].left = g_rays.left;
 	g_ray[stripId].right = g_rays.right;
 
-        float perpDistance = g_ray[stripId].distance * cos(g_ray[stripId].rayAngle - g_player.rotationAngle);
-        float distanceProjPlane = (g_param.width / 2) / tan(fov_angle / 2);
-        float projectedWallHeight = (tile_size / perpDistance) * distanceProjPlane;
+	// 3D PROJECTIONß
+	float perpDistance = g_ray[stripId].distance * cos(g_ray[stripId].rayAngle - g_player.rotationAngle);
+	float distanceProjPlane = (g_param.width / 2) / tan(fov_angle / 2);
+	float projectedWallHeight = (tile_size / perpDistance) * distanceProjPlane;
 
-        int wallStripHeight = (int)projectedWallHeight;
+	int wallStripHeight = (int)projectedWallHeight;
 
-        int wallTopPixel = (g_param.height / 2) - (wallStripHeight / 2);
-        wallTopPixel = wallTopPixel < 0 ? 0 : wallTopPixel;
+	int wallTopPixel = (g_param.height / 2) - (wallStripHeight / 2);
+	wallTopPixel = wallTopPixel < 0 ? 0 : wallTopPixel;
 
-        int wallBottomPixel = (g_param.height / 2) + (wallStripHeight / 2);
-        wallBottomPixel = wallBottomPixel > g_param.height ? g_param.height : wallBottomPixel;
+	int wallBottomPixel = (g_param.height / 2) + (wallStripHeight / 2);
+	wallBottomPixel = wallBottomPixel > g_param.height ? g_param.height : wallBottomPixel;
 
-		for (int y = 0; y < wallTopPixel; y++) {
-			my_mlx_pixel_put(&img, stripId, y, 0x87CEEB);
-        }
+	// CEILING
+	for (int y = 0; y < wallTopPixel; y++) {
+		my_mlx_pixel_put(&img, stripId, y, 0x87CEEB);
+	}
 
-        for (int y = wallTopPixel; y < wallBottomPixel; y++) {
-			if (g_ray[stripId].vertical)
-			{
-				my_mlx_pixel_put(&img, stripId, y, 0xFF0000);
-				/* code */
+	// WALL
+	g_tex.offset_x = g_ray[stripId].vertical ?
+		(int)g_ray[stripId].wallHitY % 64 : (int)g_ray[stripId].wallHitX % 64;
+	for (int y = wallTopPixel; y < wallBottomPixel; y++) {
+		g_tex.dist_ftop = y + (wallStripHeight / 2) - (g_param.height / 2);
+		g_tex.offset_y = g_tex.dist_ftop * ((float)64 / wallStripHeight);
+		if ((64 * g_tex.offset_y + g_tex.offset_x) > 0) {
+			if (g_ray[stripId].up && !g_ray[stripId].vertical)
+				g_tex.color = g_tex.north[64 * g_tex.offset_y + g_tex.offset_x];
+			else if (g_ray[stripId].down && !g_ray[stripId].vertical)
+				g_tex.color = g_tex.south[64 * g_tex.offset_y + g_tex.offset_x];
+			else if (g_ray[stripId].right && g_ray[stripId].vertical)
+				g_tex.color = g_tex.east[64 * g_tex.offset_y + g_tex.offset_x];
+			else if (g_ray[stripId].left && g_ray[stripId].vertical)
+				g_tex.color = g_tex.west[64 * g_tex.offset_y + g_tex.offset_x];
 			}
-			else
-				my_mlx_pixel_put(&img, stripId, y, 0xFF1493);
-			
-			
-        }
+		my_mlx_pixel_put(&img, stripId, y, g_tex.color);
+	}
 
-		  for (int y = wallBottomPixel; y < g_param.height ; y++) {
-			my_mlx_pixel_put(&img, stripId, y, 0x006400);
-        }
+	// FLOOR
+	for (int y = wallBottomPixel; y < g_param.height ; y++) {
+		my_mlx_pixel_put(&img, stripId, y, 0x006400);
+	}
 
 }
 

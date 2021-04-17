@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 15:15:24 by mac               #+#    #+#             */
-/*   Updated: 2021/02/27 15:35:43 by mac              ###   ########.fr       */
+/*   Updated: 2021/04/17 17:21:11 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void errors(int i)
 		printf("ERROR\n ADD A MAP");
 	if (i == 69)
 		printf("ERROR \n INVALID FILE CONFIGURATION");
+	if (i == 100)
+		printf("Error\nTexture file not found!");
 		
 		
 	exit(0);
