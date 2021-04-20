@@ -6,115 +6,58 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 15:15:24 by mac               #+#    #+#             */
-/*   Updated: 2021/04/17 17:21:11 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/20 13:16:04 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-
-void errors(int i)
+int	ft_quit(int keycode)
 {
-	if (i == 1)
-		printf("ERROR\ncheck your map");
-	if (i == 2)
-		printf("ERROR\nDOUBLE INCLUSION");
-	if (i == 3)
-		printf("ERROR\nNEGATIVE VALUE");
-	if (i == 4)
-		printf("ERROR\nWRONG NUMBER OF ARGUMENTS");
-	if (i == 5)
-		printf("ERROR\nNOT A VALID ARGUMENT");
-	if (i == 6)
-		printf("ERROR\nUSE ONLY 2 COMMAS ");
-	if (i == 7)
-		printf("ERROR\nINVALID FLOOR RGB VALLUES");
-	if (i == 8)
-		printf("ERROR\nINVALID CEILLING RGB VALLUES");
-	if (i == 9)
-		printf("ERROR\nINVALID LINE");
+	exit(0);
+	return (0);
+}
+
+void	more_errors(int i)
+{
 	if (i == 10)
-		printf("ERROR\nINVALID MAP");
+		printf("Error\nInvalid map.");
 	if (i == 11)
-		printf("ERROR\nNEW LINE");
+		printf("Error\nNew line.");
 	if (i == 12)
-		printf("ERROR\nINVALID PLAYER NUMBER");
+		printf("Error\nInvalid player number.");
 	if (i == 13)
-		printf("ERROR\n ADD A MAP");
+		printf("Error\nAdd a map.");
 	if (i == 69)
-		printf("ERROR \n INVALID FILE CONFIGURATION");
+		printf("Error \nInvalid File Configuration.");
 	if (i == 100)
 		printf("Error\nTexture file not found!");
-		
-		
+	if (i == 111)
+		printf("Error\nArguments number is too high or low.");
+	if (i == 112)
+		printf("Error\nSecond argument is wrong.");
+}
+
+void	errors(int i)
+{
+	if (i == 1)
+		printf("Error\nCheck your map.");
+	if (i == 2)
+		printf("Error\nDouble inclusion.");
+	if (i == 3)
+		printf("Error\nNegative value.");
+	if (i == 4)
+		printf("Error\nWrong number of arguments.");
+	if (i == 5)
+		printf("Error\nNot a valid argument.");
+	if (i == 6)
+		printf("Error\nUse only 2 commas.");
+	if (i == 7)
+		printf("Error\nInvalid Floor RGB Values");
+	if (i == 8)
+		printf("Error\nInvalid Ceiling RGB Values");
+	if (i == 9)
+		printf("Error\nInvalid Line.");
+	more_errors(i);
 	exit(0);
-}
-
-int		check_R_number(char **str)
-{
-	int		i;
-	int		j;
-
-	i = 1;
-	while (str[i])
-	{
-		j = 0;
-		while (str[i][j])
-		{
-			if (!ft_isdigit(str[i][j]))
-				errors(5);
-			j++;
-		}
-		i++;
-	}
-	return (i);
-}
-
-int		check_rgb_number(char **str)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (str[i])
-	{
-		j = 0;
-		while (str[i][j])
-		{
-			if (!ft_isdigit(str[i][j]))
-				errors(5);
-			j++;
-		}
-		i++;
-	}
-	return (i);
-}
-
-int		check_rgb(char **str)
-{
-	int		i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
-void	check_comma(char *line)
-{
-	int		comma;
-
-	comma = 0;
-	while (*line)
-	{
-		if (*line == ',')
-		{
-			comma++;
-			if (comma > 2)
-				errors(6);
-		}
-		line++;
-	}
 }

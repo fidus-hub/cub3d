@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgrissen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 15:05:01 by mgrissen          #+#    #+#             */
-/*   Updated: 2019/11/09 19:55:38 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/20 13:44:15 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_wherestart(char const *s1, char const *set)
+static int	ft_wherestart(char const *s1, char const *set)
 {
-	int start;
-	int i;
+	int	start;
+	int	i;
 
 	start = 0;
 	while (s1[start] != '\0')
@@ -31,10 +31,10 @@ static int		ft_wherestart(char const *s1, char const *set)
 	return (start);
 }
 
-static int		ft_whereend(char const *s1, char const *set, int start)
+static int	ft_whereend(char const *s1, char const *set, int start)
 {
-	int end;
-	int i;
+	int	end;
+	int	i;
 
 	end = ft_strlen(s1);
 	i = 0;
@@ -57,7 +57,8 @@ static	char	*ft_case(char const *s1)
 	char	*fin;
 
 	i = 0;
-	if (!(fin = malloc((ft_strlen(s1) + 1) * sizeof(char))))
+	fin = malloc((ft_strlen(s1) + 1) * sizeof(char));
+	if (!fin)
 		return (0);
 	while (i < (int)ft_strlen(s1))
 	{
@@ -68,7 +69,7 @@ static	char	*ft_case(char const *s1)
 	return (fin);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*fin;
 	int		start;
@@ -84,7 +85,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 	end = ft_whereend(s1, set, start);
 	i = 0;
 	s = end - start + 1;
-	if (!(fin = (char *)malloc((s + 1) * sizeof(char))))
+	fin = (char *)malloc((s + 1) * sizeof(char));
+	if (!fin)
 		return (0);
 	while (i < s)
 	{

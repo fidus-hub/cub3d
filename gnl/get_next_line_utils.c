@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 15:51:56 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/02/27 17:09:18 by mac              ###   ########.fr       */
+/*   Updated: 2021/04/20 13:59:20 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -32,7 +32,8 @@ char	*ft_strdup(const char *s)
 	k = 0;
 	while (s[k] != '\0')
 		k++;
-	if (!(new = (char *)malloc((k + 1) * sizeof(char))))
+	new = (char *)malloc((k + 1) * sizeof(char));
+	if (!new)
 		return (0);
 	while (s[i] != '\0')
 	{
@@ -53,7 +54,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (0);
 	if (start > ft_strlen(s))
 		len = 0;
-	if (!(str = malloc((len + 1) * sizeof(char))))
+	str = malloc((len + 1) * sizeof(char));
+	if (!str)
 		return (0);
 	if (start < ft_strlen(s))
 	{
@@ -78,7 +80,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	if (!(str = (char*)malloc(ft_strlen(s1) + ft_strlen(s2) + 1)))
+	str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!str)
 		return (NULL);
 	while (*s1)
 	{

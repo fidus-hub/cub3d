@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   check_map_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/16 13:35:48 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/20 13:26:57 by mgrissen         ###   ########.fr       */
+/*   Created: 2021/04/20 17:35:02 by mgrissen          #+#    #+#             */
+/*   Updated: 2021/04/20 17:35:03 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../cub3d.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+void	check_map_2(void)
 {
 	int	i;
+	int	j;
+	int	width_tmp;
 
 	i = 0;
-	while (src[i])
+	while (g_map.all_map[i])
 	{
-		dst[i] = src[i];
+		j = 0;
+		width_tmp = 0;
+		while (g_map.all_map[i][j])
+		{
+			if (g_map.all_map[i][j] == '2')
+				g_param.sprite_count++;
+			width_tmp++;
+			j++;
+		}
+		if (width_tmp > g_map.width)
+			g_map.width = width_tmp;
+		g_map.heigth++;
 		i++;
 	}
-	dst[i] = '\0';
-	return (dst);
 }

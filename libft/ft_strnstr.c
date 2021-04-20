@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgrissen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 10:27:30 by mgrissen          #+#    #+#             */
-/*   Updated: 2019/11/18 12:49:44 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/20 13:45:14 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *src, const char *tofind, size_t len)
 	const char	*fin;
 
 	if (*tofind == '\0')
-		return (char*)src;
+		return ((char *)src);
 	while (*src != '\0' && len > 0)
 	{
 		deb = src;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgrissen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 11:39:39 by mgrissen          #+#    #+#             */
-/*   Updated: 2019/11/16 13:21:12 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/20 13:39:56 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_intlen(int n)
 	return (i);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char			*str;
 	unsigned int	nb;
@@ -44,7 +44,8 @@ char		*ft_itoa(int n)
 		nb = -n;
 	else
 		nb = n;
-	if (!(str = (char *)malloc(sizeof(char) * (i + 1))))
+	str = (char *)malloc(sizeof(char) * (i + 1));
+	if (!str)
 		return (NULL);
 	str[i] = '\0';
 	while (i-- > 0)
