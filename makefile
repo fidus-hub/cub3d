@@ -6,7 +6,7 @@
 #    By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/21 15:54:56 by mac               #+#    #+#              #
-#    Updated: 2021/04/21 14:21:24 by mgrissen         ###   ########.fr        #
+#    Updated: 2021/04/21 16:39:39 by mgrissen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,13 +26,11 @@ MLX_FLAG =  -lmlx -framework OpenGL -framework AppKit  -O3
 NAME = cub3D
 GNL_FLAGS = -D BUFFER_SIZE=32
 
-USELESS_FLAG = -fsanitize=address
-
 all : $(NAME)
 
 $(NAME) :
 		@make -C $(LIBFT)
-		@gcc $(SRC) -o $(NAME) $(MLX_FLAG) $(USELESS_FLAG)
+		@gcc $(SRC) -o $(NAME) $(MLX_FLAG)
 clean :
 		rm -rf $(OBJ)
 fclean : clean
