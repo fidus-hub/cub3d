@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 17:33:24 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/20 17:33:28 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/21 13:21:37 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 int	key_pressed(int keycode)
 {
-	if (keycode == 13)
+	if (keycode == 13 || keycode == 126)
 		g_player.walkDirection = 1;
-	if (keycode == 1)
+	if (keycode == 1 || keycode == 125)
 		g_player.walkDirection = -1;
 	if (keycode == 2)
 		g_player.turnDirection = 1;
+	if (keycode == 123)
+		g_player.walk_r = 1;
+	if (keycode == 124)
+		g_player.walk_r = -1;
 	if (keycode == 0)
 		g_player.turnDirection = -1;
 	if (keycode == 53)
@@ -29,9 +33,13 @@ int	key_pressed(int keycode)
 
 int	key_released(int keycode)
 {
-	if (keycode == 13)
+	if (keycode == 13 || keycode == 126)
 		g_player.walkDirection = 0;
-	if (keycode == 1)
+	if (keycode == 124)
+		g_player.walk_r = 0;
+	if (keycode == 123)
+		g_player.walk_r = 0;
+	if (keycode == 1 || keycode == 125)
 		g_player.walkDirection = 0;
 	if (keycode == 2)
 		g_player.turnDirection = 0;
@@ -50,6 +58,12 @@ void	update(void)
 	moveStep = g_player.walkDirection * g_player.walkSpeed;
 	x = g_player.x + cos(g_player.rotationAngle) * moveStep;
 	y = g_player.y + sin(g_player.rotationAngle) * moveStep;
+	if (g_player.walk_r != 0)
+	{
+		moveStep = g_player.walkSpeed * g_player.walk_r;
+		y = g_player.y - cos(g_player.rotationAngle) * moveStep;
+		x = g_player.x + sin(g_player.rotationAngle) * moveStep;
+	}
 	if (!is_wall(y, x))
 	{
 		g_player.x = x;

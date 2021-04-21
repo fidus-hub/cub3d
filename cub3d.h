@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 15:53:08 by mac               #+#    #+#             */
-/*   Updated: 2021/04/20 13:17:56 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/21 13:18:38 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_player
 	float		walkSpeed;
 	float		turnSpeed;
 	float		fov;
+	float		walk_r;
 }				t_player;
 
 typedef struct s_ray

@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 17:01:48 by mac               #+#    #+#             */
-/*   Updated: 2021/04/20 13:17:38 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/21 14:19:00 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	get_check_txt(char *line, int txt)
 		g_param.sprite_t = ft_strdup(line_sprite);
 	else
 		errors(2);
+	free(linee);
+	free(line_sprite);
 }
 
 int	main(int ac, char **av)
@@ -57,7 +59,7 @@ int	main(int ac, char **av)
 	g_map.width = ft_strlen(g_map.all_map[0]);
 	g_vars.mlx = mlx_init();
 	g_vars.win = mlx_new_window(g_vars.mlx, g_param.width, g_param.height,
-			"Fidus world");
+			"Cub3D");
 	set_player();
 	texture_init();
 	init_sprite();

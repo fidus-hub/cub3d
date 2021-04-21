@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   file_reader.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fidus <fidus@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 16:07:13 by mac               #+#    #+#             */
-/*   Updated: 2021/04/19 16:03:48 by fidus            ###   ########.fr       */
+/*   Updated: 2021/04/21 13:44:57 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ void	get_file(int ac, char **av)
 			g_vars.save = 1;
 		else
 			errors(112);
+	}
+	if (ft_strncmp(ft_strrchr(av[1], '.'), ".cub", 15))
+	{
+		errors(112);
 	}
 	get_file_norm(fd, line);
 }

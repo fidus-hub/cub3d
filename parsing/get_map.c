@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fidus <fidus@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 10:33:03 by mac               #+#    #+#             */
-/*   Updated: 2021/04/18 01:25:32 by fidus            ###   ########.fr       */
+/*   Updated: 2021/04/21 14:15:40 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,17 @@
 
 void	get_map(char *str)
 {
+	char	*tmp;
+
 	if (str[0] != '\0' && !g_map.test)
 		g_map.test = 1;
 	if (g_map.test && (str[0] != '\0'))
+	{
+		tmp = g_map.map;
 		g_map.map = ft_strjoin_line(g_map.map, str);
+		free(tmp);
+		tmp = NULL;
+	}
 	if (g_map.test && (str[0] == '\0'))
 		errors(11);
 }
