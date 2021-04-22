@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 15:51:19 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/20 14:00:07 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/22 07:43:22 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/uio.h>
-# define BUFFER_SIZE 100
+# define BUFFER_SIZE 1000000
 
 char	*ft_strchr(const char *str, int c);
 size_t	ft_strlen(const char *str);

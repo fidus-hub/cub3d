@@ -6,7 +6,7 @@
 /*   By: mgrissen <mgrissen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 17:35:16 by mgrissen          #+#    #+#             */
-/*   Updated: 2021/04/21 16:36:40 by mgrissen         ###   ########.fr       */
+/*   Updated: 2021/04/22 07:44:20 by mgrissen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	get_r(char *line)
 	if (g_param.height > 1500)
 		g_param.height = 1500;
 	if (g_param.width < 30)
-		g_param.width = 30;
+		g_param.width = 2550;
 	if (g_param.height < 30)
-		g_param.height = 30;
+		g_param.height = 1500;
 	meme_free(str);
 }
 
